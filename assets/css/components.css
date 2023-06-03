@@ -1,0 +1,217 @@
+@layer components {
+  .h1 {
+    @apply font-semibold text-[48px] leading-[58px] text-dark;
+  }
+
+  .h2 {
+    @apply font-semibold text-[32px] leading-[39px] text-dark;
+  }
+
+  .h3 {
+    @apply font-semibold text-[24px] leading-[32px] text-dark;
+  }
+
+  .h4 {
+    @apply font-semibold text-[20px] leading-[28px] text-dark;
+  }
+
+  .h5 {
+    @apply font-semibold text-[18px] leading-[22px] text-dark;
+  }
+
+  .h6 {
+    @apply font-semibold text-[16px] leading-[19px] text-dark;
+  }
+
+  .body {
+    @apply text-[16px] leading-[24px] text-gray-600;
+  }
+
+  .body-muted {
+    @apply text-[16px] leading-[24px] text-gray-500;
+  }
+
+  .body-sm {
+    @apply text-[13px] leading-[16px] text-gray-600;
+  }
+
+  .body-sm-muted {
+    @apply text-[13px] leading-[16px] text-gray-500;
+  }
+
+  .body-mc {
+    @apply text-[12px] leading-[15px] text-gray-600;
+  }
+
+  .body-mc-muted {
+    @apply text-[12px] leading-[15px] text-gray-500;
+  }
+
+  .text-dark {
+    @apply text-[#1C1C1C];
+  }
+
+  .text-gray-600 {
+    @apply text-[#505050];
+  }
+
+  .text-gray-500 {
+    @apply text-[#8B96A5];
+  }
+
+  .text-gray-400 {
+    @apply text-[#BDC4CD];
+  }
+
+  .text-gray-300 {
+    @apply text-[#DEE2E7];
+  }
+
+  .text-gray-200 {
+    @apply text-[#EFF2F4];
+  }
+
+  .text-gray-100 {
+    @apply text-[#F7FAFC];
+  }
+
+  .text-secondary {
+    @apply text-[#E3F0FF];
+  }
+
+  .text-primary {
+    @apply text-[#0D6EFD];
+  }
+
+  .text-green-light {
+    @apply text-[#C3FFCB];
+  }
+
+  .text-green {
+    @apply text-[#00B517];
+  }
+
+  .text-orange-light {
+    @apply text-[#FFE5BF];
+  }
+
+  .text-orange {
+    @apply text-[#FF9017];
+  }
+
+  .text-red {
+    @apply text-[#FA3434];
+  }
+
+  .border-dark {
+    @apply border-[#1C1C1C];
+  }
+
+  .border-gray-600 {
+    @apply border-[#505050];
+  }
+
+  .border-gray-500 {
+    @apply border-[#8B96A5];
+  }
+
+  .border-gray-400 {
+    @apply border-[#BDC4CD];
+  }
+
+  .border-gray-300 {
+    @apply border-[#DEE2E7];
+  }
+
+  .border-gray-200 {
+    @apply border-[#EFF2F4];
+  }
+
+  .border-gray-100 {
+    @apply border-[#F7FAFC];
+  }
+
+  .border-secondary {
+    @apply border-[#E3F0FF];
+  }
+
+  .border-primary {
+    @apply border-[#0D6EFD];
+  }
+
+  .border-green-light {
+    @apply border-[#C3FFCB];
+  }
+
+  .border-green {
+    @apply border-[#00B517];
+  }
+
+  .border-orange-light {
+    @apply border-[#FFE5BF];
+  }
+
+  .border-orange {
+    @apply border-[#FF9017];
+  }
+
+  .border-red {
+    @apply border-[#FA3434];
+  }
+
+  .bg-dark {
+    @apply bg-[#1C1C1C];
+  }
+
+  .bg-gray-600 {
+    @apply bg-[#505050];
+  }
+
+  .bg-gray-500 {
+    @apply bg-[#8B96A5];
+  }
+
+  .bg-gray-400 {
+    @apply bg-[#BDC4CD];
+  }
+
+  .bg-gray-300 {
+    @apply bg-[#DEE2E7];
+  }
+
+  .bg-gray-200 {
+    @apply bg-[#EFF2F4];
+  }
+
+  .bg-gray-100 {
+    @apply bg-[#F7FAFC];
+  }
+
+  .bg-secondary {
+    @apply bg-[#E3F0FF];
+  }
+
+  .bg-primary {
+    @apply bg-[#0D6EFD];
+  }
+
+  .bg-green-light {
+    @apply bg-[#C3FFCB];
+  }
+
+  .bg-green {
+    @apply bg-[#00B517];
+  }
+
+  .bg-orange-light {
+    @apply bg-[#FFE5BF];
+  }
+
+  .bg-orange {
+    @apply bg-[#FF9017];
+  }
+
+  .bg-red {
+    @apply bg-[#FA3434];
+  }
+}
