@@ -3,6 +3,8 @@
 
   <main class="">
     <slot />
+
+    <Subscribe />
   </main>
 
   <Footer />

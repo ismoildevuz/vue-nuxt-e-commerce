@@ -18,9 +18,9 @@
               <h6>Home interiors</h6>
             </div>
 
-            <div class="p-3 rounded-lg">
+            <NuxtLink to="/mobile" class="p-3 rounded-lg">
               <h6>Computer and tech</h6>
-            </div>
+            </NuxtLink>
 
             <div class="p-3 rounded-lg">
               <h6>Tools, equipments</h6>
@@ -253,11 +253,270 @@
           </div>
         </div>
       </div>
+
+      <div
+        class="my-5 flex bg-white border-2 border-gray-300 rounded-lg overflow-hidden"
+      >
+        <div class="flex-shrink-0 bg-slate-300 relative">
+          <img
+            class="w-full h-[500px] object-cover"
+            src="/images/bg-image-4.png"
+            alt=""
+          />
+
+          <div class="cover w-full h-full absolute top-0 z-10"></div>
+
+          <div class="absolute w-[400px] top-12 left-10 z-20">
+            <h2 class="h2 mb-5">
+              <span class="text-white"
+                >An easy way to send requests to all suppliers</span
+              >
+            </h2>
+
+            <h6 class="body">
+              <span class="text-white font-normal">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt.</span
+              >
+            </h6>
+          </div>
+
+          <div
+            class="absolute w-[500px] top-12 right-10 z-20 bg-white rounded-lg p-8"
+          >
+            <h4 class="h4 mb-5">
+              <span class="">Send quote to suppliers</span>
+            </h4>
+
+            <div class="h6">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="What item you need?"
+                class="font-normal border-2 border-gray-300 rounded-lg p-2 w-full mb-5"
+              />
+
+              <div class="relative w-full mb-5">
+                <!-- <Icons
+                  class="absolute bottom-0 -right-1 rotate-45"
+                  name="arrow_right"
+                  color="#E4E4E4"
+                /> -->
+                <textarea
+                  name="details"
+                  id="details"
+                  rows="3"
+                  class="font-normal border-2 border-gray-300 rounded-lg p-2 w-full max-h-[100px] min-h-[50px]"
+                  placeholder="Type more details"
+                ></textarea>
+              </div>
+
+              <div class="flex gap-5 items-center mb-5">
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  class="font-normal border-2 border-gray-300 rounded-lg p-2 w-[200px]"
+                />
+
+                <div class="relative">
+                  <Icons
+                    class="absolute top-[25%] right-2"
+                    name="expand_more"
+                    color="#8B96A5"
+                  />
+                  <select
+                    name="pcs"
+                    id="pcs"
+                    class="font-normal border-2 border-gray-300 rounded-lg p-2 w-[150px] appearance-none"
+                  >
+                    <option selected hidden disabled>Pcs</option>
+                    <option>item 1</option>
+                    <option>item 2</option>
+                    <option>item 3</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="px-4 py-3 bg-primary rounded-lg">
+                <span class="text-white font-medium"> Send inquiry </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="h3 my-10"><span>Recommended items</span></h3>
+
+      <div class="grid grid-cols-5 gap-5">
+        <div
+          v-for="(el, ind) in recommend"
+          :key="ind"
+          class="p-5 bg-white border-2 border-gray-300 rounded-lg overflow-hidden"
+        >
+          <img
+            class="w-[200px] h-[200px] object-cover mb-5"
+            :src="`/images/${el.image}`"
+            alt="rec"
+          />
+
+          <h6 class="h6 mb-3">
+            <span>${{ el.price }}</span>
+          </h6>
+
+          <h6 class="body-muted">
+            <span>{{ el.description }}</span>
+          </h6>
+        </div>
+      </div>
+
+      <h3 class="h3 my-10"><span>Our extra services</span></h3>
+
+      <div class="grid grid-cols-4 gap-5">
+        <div
+          v-for="(el, ind) in service"
+          :key="ind"
+          class="bg-white border-2 border-gray-300 rounded-lg overflow-hidden"
+        >
+          <div class="relative">
+            <div class="w-full h-full bg-black top-0 absolute opacity-40"></div>
+
+            <img
+              class="w-full h-[150px] object-cover"
+              :src="`/images/${el.image}`"
+              alt="service"
+            />
+
+            <div
+              class="absolute -bottom-8 right-5 rounded-full p-5 border-[3px] border-white bg-secondary"
+            >
+              <Icons :name="el.icon" color="#1C1C1C" />
+            </div>
+          </div>
+
+          <div class="p-5 w-[240px]">
+            <h5 class="h5">
+              <span>{{ el.name }}</span>
+            </h5>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="h3 my-10"><span>Suppliers by region</span></h3>
+
+      <div class="grid grid-cols-5 gap-5">
+        <div
+          v-for="(el, ind) in region"
+          :key="ind"
+          class="flex items-center gap-3"
+        >
+          <img
+            class="w-[35px] h-[25px] object-cover"
+            :src="`/images/${el.image}`"
+            alt="reg"
+          />
+
+          <div>
+            <h6 class="h6">
+              <span class="font-medium">{{ el.name }}</span>
+            </h6>
+
+            <h6 class="body-sm-muted">
+              <span>{{ el.site }}</span>
+            </h6>
+          </div>
+        </div>
+      </div>
     </Container>
   </section>
 </template>
 
 <script setup>
+const region = ref([
+  { image: "ae.png", name: "Arabic Emirates", site: "shopname.ae" },
+  { image: "au.png", name: "Australia", site: "shopname.au" },
+  { image: "us.png", name: "United States", site: "shopname.us" },
+  { image: "ru.png", name: "Russia", site: "shopname.ru" },
+  { image: "it.png", name: "Italy", site: "shopname.it" },
+  { image: "dk.png", name: "Denmark", site: "shopname.com.dk" },
+  { image: "fr.png", name: "France", site: "shopname.com.fr" },
+  { image: "ae.png", name: "Arabic Emirates", site: "shopname.ae" },
+  { image: "cn.png", name: "China", site: "shopname.cn" },
+  { image: "gb.png", name: "Great Britain", site: "shopname.co.uk" },
+]);
+
+const service = ref([
+  {
+    image: "service-image-1.png",
+    icon: "search",
+    name: "Source from Industry Hubs",
+  },
+  {
+    image: "service-image-2.png",
+    icon: "inventory_2",
+    name: "Customize Your Products",
+  },
+  {
+    image: "service-image-3.png",
+    icon: "send",
+    name: "Fast, reliable shipping by ocean or air",
+  },
+  {
+    image: "service-image-4.png",
+    icon: "security",
+    name: "Product monitoring and inspection",
+  },
+]);
+
+const recommend = ref([
+  {
+    image: "rec-image-1.png",
+    description: "T-shirts with multiple colors, for men",
+    price: 10.3,
+  },
+  {
+    image: "rec-image-2.png",
+    description: "Jeans shorts for men blue color",
+    price: 10.3,
+  },
+  {
+    image: "rec-image-3.png",
+    description: "Brown winter coat medium size",
+    price: 12.5,
+  },
+  {
+    image: "rec-image-4.png",
+    description: "Jeans bag for travel for men",
+    price: 34.0,
+  },
+  { image: "rec-image-5.png", description: "Leather wallet", price: 99.0 },
+  {
+    image: "rec-image-6.png",
+    description: "Canon camera black, 100x zoom",
+    price: 9.99,
+  },
+  {
+    image: "rec-image-7.png",
+    description: "Headset for gaming with mic",
+    price: 8.99,
+  },
+  {
+    image: "rec-image-8.png",
+    description: "Smartwatch silver color modern",
+    price: 10.3,
+  },
+  {
+    image: "rec-image-9.png",
+    description: "Blue wallet for men leather metarfial",
+    price: 10.3,
+  },
+  {
+    image: "rec-image-10.png",
+    description: "Jeans bag for travel for men",
+    price: 80.95,
+  },
+]);
+
 const gadget = ref([
   { image: "gadget-image-1.png", name: "Smart watches", price: 19 },
   { image: "gadget-image-2.png", name: "Cameras", price: 89 },
@@ -295,4 +554,12 @@ const toggleDropdown = () => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cover {
+  background: linear-gradient(
+    94.99deg,
+    #2c7cf1 7.19%,
+    rgba(0, 209, 255, 0.5) 89.49%
+  );
+}
+</style>
