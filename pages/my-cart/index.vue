@@ -252,16 +252,20 @@
       <div class="relative rounded-lg overflow-hidden my-5">
         <img class="w-full h-[120px] object-cover" src="/icons/bg-cover.svg" />
 
-        <div class=" absolute top-7 left-7">
-          <h3 class="h3 mb-2"><span class="text-white">Super discount on more than 100 USD</span></h3>
-          <h6 class="h6 opacity-70"><span class="text-white font-normal">Have you ever finally just write dummy info</span></h6>
+        <div class="absolute top-7 left-7">
+          <h3 class="h3 mb-2">
+            <span class="text-white">Super discount on more than 100 USD</span>
+          </h3>
+          <h6 class="h6 opacity-70">
+            <span class="text-white font-normal"
+              >Have you ever finally just write dummy info</span
+            >
+          </h6>
         </div>
 
-        <div class=" absolute top-10 right-7">
-          <button class=" bg-orange rounded-lg py-2 px-3">
-            <span class=" text-white">
-              Shop now
-            </span>
+        <div class="absolute top-10 right-7">
+          <button class="bg-orange rounded-lg py-2 px-3">
+            <span class="text-white"> Shop now </span>
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="subscribe bg-gray-200 py-10">
+  <section class="subscribe bg-gray-200 py-10 hidden 2xl:block">
     <Contaier>
       <div class="mx-auto w-[600px]">
         <div class="text-center">

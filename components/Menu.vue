@@ -1,5 +1,5 @@
 <template>
-  <div class="h6 border-y-2 border-gray-300">
+  <div class="h6 border-y-2 border-gray-300 hidden 2xl:block">
     <Container>
       <div class="py-5 flex items-center justify-between">
         <div class="flex items-center gap-10">

@@ -1,5 +1,5 @@
 <template>
-  <footer class="2xl:block sm:hidden">
+  <footer class="2xl:block hidden">
     <Container>
       <nav class="py-10 flex gap-40">
         <div class="w-[280px]">

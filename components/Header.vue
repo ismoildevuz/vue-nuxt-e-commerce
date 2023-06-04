@@ -2,9 +2,21 @@
   <header>
     <Container>
       <nav class="py-5 flex justify-between">
-        <nuxt-link to="/"><img src="/icons/logo.svg" alt="logo" /></nuxt-link>
+        <div class="flex items-center gap-5 pl-5">
+          <div>
+            <Icons name="menu" />
+          </div>
 
-        <div class="flex border-primary border-2 rounded-lg">
+          <nuxt-link to="/"><img src="/icons/logo.svg" alt="logo" /></nuxt-link>
+        </div>
+
+        <div class="flex items-center gap-8 2xl:hidden pr-5">
+          <Icons name="shopping_cart" />
+
+          <Icons name="person" />
+        </div>
+
+        <div class="hidden 2xl:flex border-primary border-2 rounded-lg">
           <input
             class="focus:outline-none px-3 w-[500px] rounded-l-lg"
             type="text"
@@ -47,7 +59,7 @@
           </button>
         </div>
 
-        <div class="body-mc-muted flex items-center gap-7">
+        <div class="hidden body-mc-muted 2xl:flex items-center gap-7">
           <div class="flex flex-col gap-1 items-center">
             <Icons name="person_fill" color="#8B96A5" />
 
@@ -57,22 +69,34 @@
           <div class="flex flex-col gap-1 items-center">
             <Icons name="chat_fill" color="#8B96A5" />
 
-            <span class="text-center">Profile</span>
+            <span class="text-center">Message</span>
           </div>
 
           <div class="flex flex-col gap-1 items-center">
             <Icons name="favorite" color="#8B96A5" />
 
-            <span class="text-center">Profile</span>
+            <span class="text-center">Orders</span>
           </div>
 
           <nuxt-link to="/my-cart" class="flex flex-col gap-1 items-center">
             <Icons name="shopping_cart_fill" color="#8B96A5" />
 
-            <span class="text-center">Profile</span>
+            <span class="text-center">My cart</span>
           </nuxt-link>
         </div>
       </nav>
+
+      <div
+        class="relative border-2 border-gray-300 rounded-lg overflow-hidden mx-5 2xl:hidden"
+      >
+        <Icons class="absolute top-3 left-4" name="search" color="#8B96A5" />
+
+        <input
+          type="text"
+          class="py-3 pl-14 focus:outline-none"
+          placeholder="Search"
+        />
+      </div>
     </Container>
   </header>
 </template>
