@@ -1,7 +1,11 @@
 <template>
-  <div class="contariner 2xl:w-[1400px] sm:w-[640px] mx-auto">
+  <Header />
+
+  <main class="">
     <slot />
-  </div>
+  </main>
+
+  <Footer />
 </template>
 
 <script setup></script>

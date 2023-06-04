@@ -148,7 +148,7 @@
                 <img
                   class="w-[230px] h-[230px] object-cover mb-5"
                   :src="`/images/${el.image}`"
-                  alt="rec"
+                  alt="mobile"
                 />
               </div>
 

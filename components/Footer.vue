@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="2xl:block sm:hidden">
     <Container>
       <nav class="py-10 flex gap-40">
         <div class="w-[280px]">
@@ -89,7 +89,7 @@
 
           <div class="flex items-center gap-10">
             <div class="flex items-center gap-2 cursor-pointer select-none">
-              <span>Ship to</span>
+              <span>English</span>
 
               <img width="24" src="/images/us.png" alt="us" />
 

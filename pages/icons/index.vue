@@ -182,6 +182,8 @@ const icons = ref([
   { name: "person_fill" },
   { name: "chat_fill" },
   { name: "shopping_cart_fill" },
+  { name: "lock_fill" },
+  { name: "deliery" },
   { name: "ae" },
   { name: "au" },
   { name: "cn" },

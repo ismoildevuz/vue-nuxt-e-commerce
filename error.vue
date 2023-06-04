@@ -1,10 +1,8 @@
 <template>
   <Header />
-  <Menu />
-  <main class="">
-    <slot />
 
-    <Subscribe />
+  <main class="">
+    <Error />
   </main>
 
   <Footer />
