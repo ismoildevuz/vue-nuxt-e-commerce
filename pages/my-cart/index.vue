@@ -227,7 +227,7 @@
           <div
             v-for="(el, ind) in saved"
             :key="ind"
-            class="bg-white rounded-lg overflow-hidden flex 2xl:block border-2 mb-3 border-0"
+            class="bg-white rounded-lg overflow-hidden flex 2xl:block border-2 mb-3 2xl:border-0"
           >
             <div
               class="flex-shrink-0 flex justify-center items-center rounded-lg overflow-hidden 2xl:border-2 2xl:mb-5"
