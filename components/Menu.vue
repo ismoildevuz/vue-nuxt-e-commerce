@@ -34,7 +34,11 @@
           <div class="flex items-center gap-2 cursor-pointer select-none">
             <span>Ship to</span>
 
-            <Icons name="de" />
+            <img
+              class="w-[21px] h-[15px] object-cover"
+              src="/images/de.png"
+              alt=""
+            />
 
             <Icons name="expand_more" color="#8B96A5" />
           </div>

@@ -123,9 +123,9 @@
             :key="ind"
             class="border-2 2xl:border-0 2xl:border-l-2 border-gray-300 p-5"
           >
-            <div class="w-[130px] 2xl:w-auto flex justify-center 2xl:block">
+            <div class="w-[130px] 2xl:w-auto flex  flex-shrink-0 justify-center 2xl:block">
               <img
-                class="w-[100px] 2xl:w-[225px] h-[100px] 2xl:h-[225px] object-cover"
+                class="w-[100px] 2xl:w-[210px] h-[100px] 2xl:h-[210px] object-cover"
                 :src="`/images/${el.image}`"
                 alt="offer"
               />

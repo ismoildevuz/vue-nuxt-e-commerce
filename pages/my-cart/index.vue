@@ -1,32 +1,40 @@
 <template>
   <section class="bg-gray-100">
     <Container class="py-10">
-      <h3 class="h3 mb-10">
+      <h3 class="h3 mb-10 hidden 2xl:block">
         <span>My cart ({{ cart.length }})</span>
       </h3>
 
-      <div class="flex gap-5">
-        <div class="w-full border-2 border-gray-300 rounded-lg p-5 bg-white">
+      <div class="2xl:flex gap-5">
+        <div
+          class="w-full border-2 border-b-0 2xl:border-2 border-gray-300 2xl:rounded-lg pt-5 2xl:p-5 bg-white"
+        >
           <div
             v-for="(el, ind) in cart"
             :key="ind"
-            class="border-b-2 pb-5 mb-5 flex gap-5"
+            class="border-b-2 pb-5 px-5 2xl:px-0 mb-5 2xl:flex justify-between gap-5 relative"
           >
-            <div class="flex-shrink-0">
-              <img
-                class="w-[80px] h-[80px] object-cover border-2 rounded-lg"
-                :src="`/images/${el.image}`"
-                alt="cart"
-              />
+            <div class="absolute right-2 2xl:hidden">
+              <button><Icons name="more_vert" color="#8B96A5" /></button>
             </div>
 
-            <div class="flex justify-between w-full">
-              <div>
-                <h5 class="h5 mb-5">
-                  <span>{{ el.name }}</span>
+            <div class="flex gap-5">
+              <div class="flex-shrink-0">
+                <img
+                  class="w-[80px] h-[80px] object-cover border-2 rounded-lg"
+                  :src="`/images/${el.image}`"
+                  alt="cart"
+                />
+              </div>
+
+              <div class="">
+                <h5 class="h6 2xl:h5 mb-2 2xl:mb-5">
+                  <span class="font-normal 2xl:font-semibold">{{
+                    el.name
+                  }}</span>
                 </h5>
 
-                <div class="body-muted mb-5">
+                <div class="body-sm-muted 2xl:body-muted mb-5">
                   <h6>
                     <span>{{ el.description }}</span>
                   </h6>
@@ -35,7 +43,7 @@
                   </h6>
                 </div>
 
-                <div class="flex gap-5">
+                <div class="hidden 2xl:flex gap-5">
                   <button class="py-1 px-2 border-2 rounded-lg text-red">
                     <span>Remove</span>
                   </button>
@@ -45,36 +53,39 @@
                   </button>
                 </div>
               </div>
+            </div>
 
-              <div class="flex flex-col items-end">
-                <h5 class="h5 mb-5">
-                  <span>{{ el.price }}</span>
-                </h5>
+            <div
+              class="flex 2xl:flex-col 2xl:items-end flex-row-reverse justify-between items-center 2xl:justify-start"
+            >
+              <h5 class="h5 2xl:mb-5">
+                <span>{{ el.price }}</span>
+              </h5>
 
-                <div class="relative">
-                  <Icons
-                    class="absolute top-[25%] right-2"
-                    name="expand_more"
-                    color="#8B96A5"
-                  />
-                  <select
-                    v-model="el.quantity"
-                    name="pcs"
-                    id="pcs"
-                    class="font-normal border-2 border-gray-300 rounded-lg p-2 w-[120px] appearance-none"
-                  >
-                    <option :value="el.quantity" selected hidden disabled>
-                      Qty: {{ el.quantity }}
-                    </option>
-                    <option value="1">Qty: 1</option>
-                    <option value="2">Qty: 2</option>
-                    <option value="3">Qty: 3</option>
-                  </select>
-                </div>
+              <div class="relative">
+                <Icons
+                  class="absolute top-[25%] right-2"
+                  name="expand_more"
+                  color="#8B96A5"
+                />
+                <select
+                  v-model="el.quantity"
+                  name="pcs"
+                  id="pcs"
+                  class="font-normal border-2 border-gray-300 rounded-lg p-2 w-[120px] appearance-none"
+                >
+                  <option :value="el.quantity" selected hidden disabled>
+                    Qty: {{ el.quantity }}
+                  </option>
+                  <option value="1">Qty: 1</option>
+                  <option value="2">Qty: 2</option>
+                  <option value="3">Qty: 3</option>
+                </select>
               </div>
             </div>
           </div>
-          <div class="flex justify-between p-5 h6">
+
+          <div class="hidden 2xl:flex justify-between p-5 h6">
             <nuxt-link
               to="/"
               class="py-3 px-4 border-2 rounded-lg flex gap-5 items-center bg-primary"
@@ -89,9 +100,9 @@
           </div>
         </div>
 
-        <div class="flex-shrink-0 w-[300px]">
+        <div class="flex-shrink-0 2xl:w-[300px]">
           <div
-            class="border-2 border-gray-300 rounded-lg overflow-hidden bg-white p-5"
+            class="hidden 2xl:block border-2 border-gray-300 rounded-lg overflow-hidden bg-white p-5"
           >
             <h6 class="body mb-5"><span>Have a coupon?</span></h6>
 
@@ -109,7 +120,7 @@
           </div>
 
           <div
-            class="border-2 border-gray-300 rounded-lg overflow-hidden bg-white p-5 mt-5"
+            class="border-2 2xl:border-2 border-gray-300 2xl:rounded-lg overflow-hidden bg-white p-5 my-5 2xl:mb-0"
           >
             <div class="body pb-3 border-b-2">
               <div class="flex justify-between mb-2">
@@ -140,7 +151,7 @@
                 <span class="font-medium text-white">Checkout</span>
               </button>
 
-              <div class="flex justify-center gap-2 mt-5">
+              <div class="hidden 2xl:flex justify-center gap-2 mt-5">
                 <div
                   v-for="(el, ind) in card"
                   :key="ind"
@@ -154,7 +165,7 @@
         </div>
       </div>
 
-      <div class="py-10 flex gap-16">
+      <div class="py-10 hidden 2xl:flex gap-16">
         <div class="flex gap-3 items-center">
           <div
             class="flex items-center justify-center p-4 bg-gray-300 rounded-full"
@@ -207,49 +218,67 @@
         </div>
       </div>
 
-      <div class="bg-white border-2 border-gray-300 rounded-lg p-5">
+      <div
+        class="2xl:bg-white 2xl:border-2 border-gray-300 2xl:rounded-lg p-5 pt-0 2xl:p-5"
+      >
         <h4 class="h4 mb-5"><span>Saved for later</span></h4>
 
-        <div class="flex justify-between">
+        <div class="2xl:flex justify-between">
           <div
             v-for="(el, ind) in saved"
             :key="ind"
-            class="bg-white rounded-lg overflow-hidden"
+            class="bg-white rounded-lg overflow-hidden flex 2xl:block border-2 mb-3 border-0"
           >
             <div
-              class="flex justify-center items-center rounded-lg overflow-hidden border-2 mb-5"
+              class="flex-shrink-0 flex justify-center items-center rounded-lg overflow-hidden 2xl:border-2 2xl:mb-5"
             >
               <img
-                class="w-[270px] h-[240px] object-cover"
+                class="w-[100px] 2xl:w-[270px] h-[100px] 2xl:h-[240px] object-cover"
                 :src="`/images/${el.image}`"
                 alt="saved"
               />
             </div>
 
-            <div class="py-5">
-              <div>
-                <h5 class="h5 mb-2">
-                  <span>{{ el.price }}</span>
-                </h5>
+            <div class="p-3 2xl:p-0">
+              <div class="2xl:py-5">
+                <div>
+                  <h5 class="h6 2xl:h5 mb-1 2xl:mb-2">
+                    <span>{{ el.price }}</span>
+                  </h5>
+                </div>
+
+                <h6
+                  class="body-sm 2xl:body mb-3 2xl:mb-0 w-[200px] 2xl:w-[240px]"
+                >
+                  <span>{{ el.description }}</span>
+                </h6>
               </div>
 
-              <h6 class="body w-[240px]">
-                <span>{{ el.description }}</span>
-              </h6>
+              <div class="flex gap-2">
+                <button
+                  class="body-sm 2xl:h6 py-1 2xl:py-2 px-2 2xl:px-3 border-2 rounded-lg flex items-center gap-2 2xl:gap-3"
+                >
+                  <Icons
+                    name="shopping_cart"
+                    color="#0D6EFD"
+                    class="hidden 2xl:block"
+                  />
+
+                  <span class="text-primary text-medium">Move to cart</span>
+                </button>
+
+                <button
+                  class="2xl:hidden body-sm 2xl:h6 py-1 2xl:py-2 px-2 2xl:px-3 border-2 rounded-lg flex items-center gap-2 2xl:gap-3"
+                >
+                  <span class="text-red text-medium">Remove</span>
+                </button>
+              </div>
             </div>
-
-            <button
-              class="h6 py-2 px-3 border-2 rounded-lg flex items-center gap-3"
-            >
-              <Icons name="shopping_cart" color="#0D6EFD" />
-
-              <span class="text-primary">Move to cart</span>
-            </button>
           </div>
         </div>
       </div>
 
-      <div class="relative rounded-lg overflow-hidden my-5">
+      <div class="hidden 2xl:block relative rounded-lg overflow-hidden my-5">
         <img class="w-full h-[120px] object-cover" src="/icons/bg-cover.svg" />
 
         <div class="absolute top-7 left-7">
