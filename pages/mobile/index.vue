@@ -1,7 +1,21 @@
 <template>
   <section class="mobile bg-gray-100 min-h-[1500px]">
     <Container>
-      <div class="py-5 flex gap-2 body-muted">
+      <div
+        class="w-full grid 2xl:hidden auto-cols-max grid-flow-col gap-2 p-5 overflow-scroll"
+      >
+        <div v-for="(el, ind) in nav">
+          <nuxt-link :to="el.link"
+            ><div class="bg-gray-200 p-3 rounded-lg">
+              <h6 class="h6">
+                <span class="font-normal text-primary">{{ el.name }}</span>
+              </h6>
+            </div></nuxt-link
+          >
+        </div>
+      </div>
+
+      <div class="hidden py-5 2xl:flex gap-2 body-muted">
         <span>Home</span>
         <Icons name="chevron_right" color="#8B96A5" />
         <span>Clothings</span>
@@ -11,8 +25,8 @@
         <span>Summer clothing</span>
       </div>
 
-      <div class="flex">
-        <div class="w-[250px] flex-shrink-0">
+      <div class="2xl:flex">
+        <div class="hidden 2xl:block 2xl:w-[250px] 2xl:flex-shrink-0">
           <div
             v-for="(el, ind) in filter"
             :key="ind"
@@ -55,26 +69,28 @@
           </div>
         </div>
 
-        <div class="w-full px-5">
+        <div class="w-full 2xl:px-5 max-w-[1150px]">
           <div
-            class="bg-white border-2 border-gray-300 rounded-lg p-3 flex items-center justify-between"
+            class="bg-white border-y-2 2xl:border-2 border-gray-300 2xl:rounded-lg py-3 px-5 2xl:p-3 flex items-center justify-between w-full"
           >
-            <div>
+            <div class="hidden 2xl:block">
               <h6 class="h6">
                 <span class="font-normal">{{ items }} items in </span
                 ><span> {{ page }}</span>
               </h6>
             </div>
 
-            <div class="flex items-center gap-4">
-              <div class="flex gap-3">
+            <div
+              class="flex items-center justify-between w-full 2xl:w-auto 2xl:justify-center 2xl:gap-4"
+            >
+              <div class="hidden 2xl:flex gap-3">
                 <input type="checkbox" />
                 <h6 class="h6">
                   <span class="font-normal">Verified only</span>
                 </h6>
               </div>
 
-              <div class="relative">
+              <div class="relative hidden 2xl:block">
                 <Icons
                   class="absolute top-[25%] right-2"
                   name="expand_more"
@@ -92,24 +108,64 @@
                 </select>
               </div>
 
+              <div class="relative 2xl:hidden">
+                <Icons
+                  class="absolute top-[15%] 2xl:top-[25%] right-2"
+                  name="sort"
+                  color="#8B96A5"
+                />
+                <select
+                  name="pcs"
+                  id="pcs"
+                  class="font-normal border-2 border-gray-300 rounded-lg p-1 2xl:p-2 w-[140px] 2xl:w-[200px] appearance-none"
+                >
+                  <option selected hidden disabled>Sort: Newest</option>
+                  <option>item 1</option>
+                  <option>item 2</option>
+                  <option>item 3</option>
+                </select>
+              </div>
+
+              <div class="relative 2xl:hidden">
+                <Icons
+                  class="absolute top-[15%] 2xl:top-[25%] right-2"
+                  name="filter_alt"
+                  color="#8B96A5"
+                />
+                <select
+                  name="pcs"
+                  id="pcs"
+                  class="font-normal border-2 border-gray-300 rounded-lg p-1 2xl:p-2 w-[110px] 2xl:w-[200px] appearance-none"
+                >
+                  <option selected hidden disabled>
+                    Filter ({{ filtered.length }})
+                  </option>
+                  <option>item 1</option>
+                  <option>item 2</option>
+                  <option>item 3</option>
+                </select>
+              </div>
+
               <div
                 class="border-2 border-gray-300 rounded-lg overflow-hidden flex"
               >
-                <div class="p-2 border-r-2 bg-gray-200">
+                <div class="p-1 2xl:p-2 border-r-2 bg-gray-200">
                   <Icons name="gridview" />
                 </div>
 
-                <div class="p-2 border-l-2">
+                <div class="p-1 2xl:p-2 border-l-2">
                   <Icons name="listview" />
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="w-full py-5">
+          <div
+            class="w-full py-5 grid 2xl:block auto-cols-max grid-flow-col gap-2 p-5 overflow-scroll 2xl:overflow-hidden"
+          >
             <div
               v-for="(el, ind) in filtered"
-              class="inline-block bg-white border-2 border-primary rounded-lg py-1 px-2 m-1 select-none"
+              class="2xl:inline-block bg-white border-2 border-primary rounded-lg py-1 px-2 m-1 select-none"
             >
               <div class="flex items-center gap-3">
                 <h6 class="body">
@@ -138,21 +194,23 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-3 gap-5">
+          <div class="grid 2xl:grid-cols-3 gap-5">
             <div
               v-for="(el, ind) in mobile"
               :key="ind"
-              class="bg-white border-2 border-gray-300 rounded-lg overflow-hidden"
+              class="bg-white border-2 border-gray-300 rounded-lg overflow-hidden mx-5 2xl:mx-0 flex items-center gap-5 2xl:block p-2"
             >
-              <div class="flex justify-center border-b-2 border-gray-300">
+              <div
+                class="flex justify-center items-center h-full 2xl:h-auto 2xl:border-b-2 2xl:border-gray-300 flex-shrink-0"
+              >
                 <img
-                  class="w-[230px] h-[230px] object-cover mb-5"
+                  class="w-[80px] 2xl:w-[230px] h-[100px] 2xl:h-[230px] object-cover 2xl:mb-5"
                   :src="`/images/${el.image}`"
                   alt="mobile"
                 />
               </div>
 
-              <div class="p-5">
+              <div class="2xl:p-5">
                 <div class="flex justify-between">
                   <div>
                     <div class="flex items-baseline gap-3 mb-1">
@@ -208,29 +266,43 @@
                         </div>
                       </div>
 
-                      <h6>
-                        <span class="text-orange font-normal">{{
-                          el.rating
-                        }}</span>
+                      <h6 class="body-sm 2xl:body pt-1 2xl:pt-0">
+                        <span class="text-orange">{{ el.rating }}</span>
                       </h6>
+
+                      <div
+                        class="flex items-center gap-1 2xl:hidden pt-1 2xl:pt-0"
+                      >
+                        <div class="bg-gray-500 w-1 h-1 rounded-full"></div>
+
+                        <h6 class="body-sm-muted">
+                          <span>{{ el.orders }} orders</span>
+                        </h6>
+                      </div>
                     </div>
                   </div>
 
                   <div
-                    class="w-[37px] h-[37px] flex items-center justify-center border-2 border-gray-300 rounded-lg"
+                    class="hidden w-[37px] h-[37px] 2xl:flex items-center justify-center border-2 border-gray-300 rounded-lg"
                   >
                     <Icons name="favorite_border" color="#0D6EFD" />
                   </div>
                 </div>
 
-                <h6 class="body w-[240px]">
-                  <span>{{ el.description }}</span>
+                <h6 class="h6 2xl:body 2xl:w-[240px] pt-2">
+                  <span class="text-gray-600 font-normal">{{
+                    el.description
+                  }}</span>
+                </h6>
+
+                <h6 class="2xl:hidden body w-[240px] pt-2">
+                  <span class="text-green">Free shipping</span>
                 </h6>
               </div>
             </div>
           </div>
 
-          <div class="flex justify-end my-10">
+          <div class="flex justify-center 2xl:justify-end my-10">
             <div class="flex items-center gap-2">
               <div class="relative">
                 <Icons
@@ -286,6 +358,15 @@
 </template>
 
 <script setup>
+const nav = ref([
+  { id: 1, name: "Tablets", link: "/mobile" },
+  { id: 2, name: "Phones", link: "/mobile" },
+  { id: 3, name: "Ipads", link: "/mobile" },
+  { id: 4, name: "Ipod", link: "/mobile" },
+  { id: 5, name: "Smart watches", link: "/mobile" },
+  { id: 6, name: "Laptops", link: "/mobile" },
+]);
+
 const mobile = ref([
   {
     id: 1,
@@ -293,6 +374,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 4,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -302,6 +384,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 4.5,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -311,6 +394,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 5,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -320,6 +404,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 3.5,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
   {
@@ -328,6 +413,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 3,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -337,6 +423,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 2.5,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -346,6 +433,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 2,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -355,6 +443,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 1.5,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 
@@ -364,6 +453,7 @@ const mobile = ref([
     newPrice: "$99.50",
     oldPrice: "$1128.00",
     rating: 1,
+    orders: 154,
     description: "GoPro HERO6 4K Action Camera - Black",
   },
 ]);

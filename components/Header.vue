@@ -2,16 +2,36 @@
   <header>
     <Container>
       <nav class="py-5 flex justify-between">
-        <div class="flex items-center gap-5 pl-5">
-          <div>
+        <div
+          v-if="useRoute().name == 'index'"
+          class="flex items-center gap-5 pl-5 2xl:pl-0"
+        >
+          <div class="2xl:hidden">
             <Icons name="menu" />
           </div>
 
           <nuxt-link to="/"><img src="/icons/logo.svg" alt="logo" /></nuxt-link>
         </div>
 
+        <div
+          v-else-if="useRoute().name != 'index'"
+          class="flex items-center gap-2 2xl:gap-5 pl-5 2xl:pl-0"
+        >
+          <nuxt-link class="p-2 rounded-full" to="/">
+            <Icons name="arrow_back" />
+          </nuxt-link>
+
+          <h5 class="h5">
+            <span>{{
+              routes.find((e) => e.path == useRoute().fullPath)?.name
+            }}</span>
+          </h5>
+        </div>
+
         <div class="flex items-center gap-8 2xl:hidden pr-5">
-          <Icons name="shopping_cart" />
+          <nuxt-link to="/my-cart" class="2xl:hidden p-2 rounded-full">
+            <Icons name="shopping_cart" />
+          </nuxt-link>
 
           <Icons name="person" />
         </div>
@@ -102,6 +122,12 @@
 </template>
 
 <script setup>
+const routes = ref([
+  { id: 1, name: "Mobile accessory", path: "/mobile" },
+  { id: 2, name: "My cart", path: "/my-cart" },
+  { id: 3, name: "Icons", path: "/icons/" },
+]);
+
 const isOpen = ref(false);
 
 const toggleDropdown = () => {
