@@ -118,31 +118,11 @@
         </div>
 
         <div class="flex overflow-scroll 2xl:overflow-hidden">
-          <div
+          <OfferCard
             v-for="(el, ind) in offers"
             :key="ind"
-            class="border-2 2xl:border-0 2xl:border-l-2 border-gray-300 p-5"
-          >
-            <div class="w-[130px] 2xl:w-auto flex  flex-shrink-0 justify-center 2xl:block">
-              <img
-                class="w-[100px] 2xl:w-[210px] h-[100px] 2xl:h-[210px] object-cover"
-                :src="`/images/${el.image}`"
-                alt="offer"
-              />
-            </div>
-
-            <div class="text-center">
-              <h5 class="body-sm 2xl:h5 my-3">
-                <span class="text-dark 2xl:font-normal">{{ el.name }}</span>
-              </h5>
-
-              <h6
-                class="h6 inline-block text-red bg-[#FFE3E3] px-3 py-2 rounded-full"
-              >
-                <span class="font-medium">{{ el.offer }}</span>
-              </h6>
-            </div>
-          </div>
+            :el="el"
+          ></OfferCard>
         </div>
       </div>
 
@@ -170,34 +150,7 @@
         <div
           class="w-full flex 2xl:grid 2xl:grid-cols-4 overflow-scroll 2xl:overflow-hidden"
         >
-          <div
-            v-for="(el, ind) in home"
-            :key="ind"
-            class="border-2 2xl:border-l-2 2xl:border-y 2xl:border-r-0 border-gray-300 p-5 relative"
-          >
-            <div
-              class="w-[100px] 2xl:w-auto flex justify-center 2xl:block 2xl:absolute 2xl:bottom-1 2xl:right-1 mb-3 2xl:mb-0"
-            >
-              <img
-                class="w-[82px] h-[82px] object-cover"
-                :src="`/images/${el.image}`"
-                alt="gadget"
-              />
-            </div>
-
-            <div class="text-center 2xl:text-start">
-              <h6 class="body-sm 2xl:h6 mb-3">
-                <span class="2xl:font-normal">{{ el.name }}</span>
-              </h6>
-
-              <h6 class="body-mc-muted">
-                <span
-                  >From <br class="hidden 2xl:block" />
-                  USD {{ el.price }}</span
-                >
-              </h6>
-            </div>
-          </div>
+          <HomeCard v-for="(el, ind) in home" :key="ind" :el="el"></HomeCard>
         </div>
       </div>
 
@@ -233,34 +186,11 @@
         <div
           class="w-full flex 2xl:grid 2xl:grid-cols-4 overflow-scroll 2xl:overflow-hidden"
         >
-          <div
+          <GadgetCard
             v-for="(el, ind) in gadget"
             :key="ind"
-            class="border-2 2xl:border-l-2 2xl:border-y 2xl:border-r-0 border-gray-300 p-5 relative"
-          >
-            <div
-              class="w-[100px] 2xl:w-auto flex justify-center 2xl:block 2xl:absolute 2xl:bottom-1 2xl:right-1 mb-3 2xl:mb-0"
-            >
-              <img
-                class="w-[82px] h-[82px] object-cover"
-                :src="`/images/${el.image}`"
-                alt="gadget"
-              />
-            </div>
-
-            <div class="text-center 2xl:text-start">
-              <h6 class="body-sm 2xl:h6 mb-3">
-                <span class="2xl:font-normal">{{ el.name }}</span>
-              </h6>
-
-              <h6 class="body-mc-muted">
-                <span
-                  >From <br class="hidden 2xl:block" />
-                  USD {{ el.price }}</span
-                >
-              </h6>
-            </div>
-          </div>
+            :el="el"
+          ></GadgetCard>
         </div>
       </div>
 
@@ -307,70 +237,7 @@
             </button>
           </div>
 
-          <div
-            class="absolute w-0 2xl:w-[500px] top-12 right-10 z-20 bg-white rounded-lg 2xl:p-8"
-          >
-            <div class="">
-              <h4 class="h4 mb-5">
-                <span class="">Send quote to suppliers</span>
-              </h4>
-
-              <div class="h6">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="What item you need?"
-                  class="font-normal border-2 border-gray-300 rounded-lg p-2 w-full mb-5"
-                />
-
-                <div class="relative w-full mb-5">
-                  <!-- <Icons
-                  class="absolute bottom-0 -right-1 rotate-45"
-                  name="arrow_right"
-                  color="#E4E4E4"
-                /> -->
-                  <textarea
-                    name="details"
-                    id="details"
-                    rows="3"
-                    class="font-normal border-2 border-gray-300 rounded-lg p-2 w-full max-h-[100px] min-h-[50px]"
-                    placeholder="Type more details"
-                  ></textarea>
-                </div>
-
-                <div class="flex gap-5 items-center mb-5">
-                  <input
-                    type="number"
-                    placeholder="Quantity"
-                    class="font-normal border-2 border-gray-300 rounded-lg p-2 w-[200px]"
-                  />
-
-                  <div class="relative">
-                    <Icons
-                      class="absolute top-[25%] right-2"
-                      name="expand_more"
-                      color="#8B96A5"
-                    />
-                    <select
-                      name="pcs"
-                      id="pcs"
-                      class="font-normal border-2 border-gray-300 rounded-lg p-2 w-[150px] appearance-none"
-                    >
-                      <option selected hidden disabled>Pcs</option>
-                      <option>item 1</option>
-                      <option>item 2</option>
-                      <option>item 3</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <button class="px-4 py-3 bg-primary rounded-lg">
-                <span class="text-white font-medium"> Send inquiry </span>
-              </button>
-            </div>
-          </div>
+          <SendQuoteForm />
         </div>
       </div>
 
@@ -378,25 +245,11 @@
         <h3 class="h3 my-5 2xl:my-10"><span>Recommended items</span></h3>
 
         <div class="grid 2xl:grid-cols-5 grid-cols-2 gap-5">
-          <div
+          <RecommendCard
             v-for="(el, ind) in recommend"
             :key="ind"
-            class="p-5 bg-white border-2 border-gray-300 rounded-lg overflow-hidden"
-          >
-            <img
-              class="w-[150px] h-[150px] 2xl:w-[200px] 2xl:h-[200px] object-cover mb-3 2xl:mb-5"
-              :src="`/images/${el.image}`"
-              alt="rec"
-            />
-
-            <h6 class="h6 mb-1 2xl:mb-3">
-              <span>${{ el.price }}</span>
-            </h6>
-
-            <h6 class="body-muted">
-              <span>{{ el.description }}</span>
-            </h6>
-          </div>
+            :el="el"
+          ></RecommendCard>
         </div>
       </div>
 
@@ -404,35 +257,11 @@
 
       <div class="2xl:block hidden">
         <div class="grid grid-cols-4 gap-5">
-          <div
+          <ServiceCard
             v-for="(el, ind) in service"
             :key="ind"
-            class="bg-white border-2 border-gray-300 rounded-lg overflow-hidden"
-          >
-            <div class="relative">
-              <div
-                class="w-full h-full bg-black top-0 absolute opacity-40"
-              ></div>
-
-              <img
-                class="w-full h-[150px] object-cover"
-                :src="`/images/${el.image}`"
-                alt="service"
-              />
-
-              <div
-                class="absolute -bottom-8 right-5 rounded-full p-5 border-[3px] border-white bg-secondary"
-              >
-                <Icons :name="el.icon" color="#1C1C1C" />
-              </div>
-            </div>
-
-            <div class="p-5 w-[240px]">
-              <h5 class="h5">
-                <span>{{ el.name }}</span>
-              </h5>
-            </div>
-          </div>
+            :el="el"
+          ></ServiceCard>
         </div>
       </div>
 
@@ -441,27 +270,11 @@
       </h3>
 
       <div class="2xl:grid 2xl:grid-cols-5 2xl:gap-5 hidden">
-        <div
+        <RegionCard
           v-for="(el, ind) in region"
           :key="ind"
-          class="flex items-center gap-3"
-        >
-          <img
-            class="w-[35px] h-[25px] object-cover"
-            :src="`/images/${el.image}`"
-            alt="reg"
-          />
-
-          <div>
-            <h6 class="h6">
-              <span class="font-medium">{{ el.name }}</span>
-            </h6>
-
-            <h6 class="body-sm-muted">
-              <span>{{ el.site }}</span>
-            </h6>
-          </div>
-        </div>
+          :el="el"
+        ></RegionCard>
       </div>
     </Container>
   </section>
